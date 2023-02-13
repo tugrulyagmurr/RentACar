@@ -16,11 +16,11 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars = new List<Car>
             {
-                new Car{Id = 1,BrandId = 1,ColorId = 1,ModelYear = 1999,DailyPrice = 500,Description = "Opel"},
-                new Car{Id = 2,BrandId = 2,ColorId = 3,ModelYear = 2005,DailyPrice = 650,Description = "Fiat"},
-                new Car{Id = 3,BrandId = 2,ColorId = 1,ModelYear = 2013,DailyPrice = 700,Description = "Toyota"},
-                new Car{Id = 4,BrandId = 3,ColorId = 2,ModelYear = 2017,DailyPrice = 750,Description = "Renault"},
-                new Car{Id = 5,BrandId = 3,ColorId = 2,ModelYear = 1994,DailyPrice = 400,Description = "hyundai"}
+                new Car{CarId = 1,BrandId = 1,ColorId = 1,ModelYear = 1999,DailyPrice = 500,Description = "Opel"},
+                new Car{CarId = 2,BrandId = 2,ColorId = 3,ModelYear = 2005,DailyPrice = 650,Description = "Fiat"},
+                new Car{CarId = 3,BrandId = 2,ColorId = 1,ModelYear = 2013,DailyPrice = 700,Description = "Toyota"},
+                new Car{CarId = 4,BrandId = 3,ColorId = 2,ModelYear = 2017,DailyPrice = 750,Description = "Renault"},
+                new Car{CarId = 5,BrandId = 3,ColorId = 2,ModelYear = 1994,DailyPrice = 400,Description = "hyundai"}
 
             };
         }
@@ -34,8 +34,8 @@ namespace DataAccess.Concrete.InMemory
         public void Update(Car car)
         {
             //Her c için tek tek bak. c'nin CarId si gönderilen CarId ye eşit mi?
-            Car carToUpdate = _cars.SingleOrDefault(c => c.Id == car.Id);
-            carToUpdate.Id = car.Id;
+            Car carToUpdate = _cars.SingleOrDefault(c => c.CarId == car.CarId);
+            carToUpdate.CarId = car.CarId;
             carToUpdate.BrandId = car.BrandId;
             carToUpdate.ColorId = car.ColorId;
             carToUpdate.ModelYear = car.ModelYear;
@@ -45,7 +45,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Delete(Car car)
         {
-            Car carToDelete = _cars.SingleOrDefault(c => car.Id == car.Id);
+            Car carToDelete = _cars.SingleOrDefault(c => car.CarId == car.CarId);
             _cars.Remove(carToDelete);
         }
 

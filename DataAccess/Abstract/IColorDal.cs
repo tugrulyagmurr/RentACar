@@ -5,8 +5,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-    public interface ICarDal:IEntityRepository<Car>
+    interface IColorDal:IEntityRepository<Color>
     {
-        
     }
 }

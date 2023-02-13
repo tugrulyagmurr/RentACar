@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Business.Abstract;
 using DataAccess.Abstract;
@@ -21,6 +22,29 @@ namespace Business.Concrete
             //Yetkisi var mı
 
             return _carDal.GetAll();
+        }
+
+
+        public List<Car> GetCarsByBrandId(int brandid)
+        {
+            return _carDal.GetAll(c => c.BrandId == brandid).ToList();
+        }
+
+        public List<Car> GetCarsByColorId(int colorid)
+        {
+            return _carDal.GetAll(c => c.ColorId == colorid).ToList();
+        }
+
+        public void Add(Car car)
+        {
+            if (car.Description.Length >= 2 && car.DailyPrice > 0)
+            {
+                _carDal.Add(car);
+            }
+            else
+            {
+                Console.WriteLine("Belirlenen değerler koşulları sağlamıyor.");
+            }
         }
 
         
