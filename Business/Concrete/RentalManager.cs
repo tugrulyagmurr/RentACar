@@ -18,6 +18,11 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
+        public IDataResult<List<Rental>> GetAll()
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.RentalListed);
+        }
+
         public IResult Add(Rental rental)
         {
             if (rental.ReturnDate==null)
